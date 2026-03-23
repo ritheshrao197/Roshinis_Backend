@@ -7,12 +7,14 @@ const schema=new mongoose.Schema({
  price:Number,
  category:String,
  stock:Number,
+ image:String,
  reviews:[{
    userId:String,
    rating:Number,
    comment:String
  }],
- createdAt:{type:Date,default:Date.now}
+ createdAt:{type:Date,default:Date.now},
+ updatedAt:{type:Date,default:Date.now}
 })
 
 schema.index({name:"text",description:"text"})
