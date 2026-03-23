@@ -6,9 +6,13 @@ exports.phonepe=async(req,res)=>{
 
  const {orderId,amount}=req.body
 
- const response=await createPhonePePayment(orderId,amount)
+ try{
+  const response=await createPhonePePayment(orderId,amount)
 
- res.json(response)
+  res.json(response)
+ }catch(err){
+  res.status(500).json({message:err.message || "PhonePe payment failed"})
+ }
 
 }
 
@@ -16,9 +20,13 @@ exports.razorpay=async(req,res)=>{
 
  const {amount}=req.body
 
- const order=await createRazorpayOrder(amount)
+ try{
+  const order=await createRazorpayOrder(amount)
 
- res.json(order)
+  res.json(order)
+ }catch(err){
+  res.status(500).json({message:err.message || "Razorpay order creation failed"})
+ }
 
 }
 

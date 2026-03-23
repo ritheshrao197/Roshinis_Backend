@@ -22,3 +22,23 @@ exports.addToWishlist=async(req,res)=>{
  res.json(list)
 
 }
+
+exports.removeFromWishlist=async(req,res)=>{
+ const userId=req.body.userId||req.query.userId
+ const productId=req.body.productId||req.query.productId
+
+ if(!userId || !productId){
+  return res.status(400).json({message:"userId and productId are required"})
+ }
+
+ const list=await Wishlist.findOne({userId})
+
+ if(!list){
+  return res.status(404).json({message:"Wishlist not found"})
+ }
+
+ list.products=list.products.filter(item=>item.productId!==productId)
+ await list.save()
+
+ res.json(list)
+}
