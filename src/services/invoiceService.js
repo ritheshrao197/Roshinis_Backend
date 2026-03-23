@@ -1,11 +1,17 @@
 
-exports.generateInvoice=(order)=>{
+const PDFDocument=require("pdfkit")
 
- return {
-  invoiceId:"INV-"+order.orderId,
-  amount:order.totalAmount,
-  date:new Date(),
-  items:order.items
- }
+exports.generateInvoice=(order,res)=>{
+
+ const doc=new PDFDocument()
+
+ res.setHeader("Content-Type","application/pdf")
+
+ doc.text("GST INVOICE")
+ doc.text("Order ID: "+order.orderId)
+ doc.text("Amount: "+order.totalAmount)
+
+ doc.end()
+ doc.pipe(res)
 
 }

@@ -1,0 +1,842 @@
+[
+  {
+    "name": "Roshini Nutrimix 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 150,
+    "category": "Health Mix",
+    "stock": 124
+  },
+  {
+    "name": "Roshini Nutrimix 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 218,
+    "category": "Health Mix",
+    "stock": 218
+  },
+  {
+    "name": "Roshini Nutrimix 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 286,
+    "category": "Health Mix",
+    "stock": 86
+  },
+  {
+    "name": "Multigrain Health Mix 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 232,
+    "category": "Health Mix",
+    "stock": 191
+  },
+  {
+    "name": "Multigrain Health Mix 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 375,
+    "category": "Health Mix",
+    "stock": 258
+  },
+  {
+    "name": "Multigrain Health Mix 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 348,
+    "category": "Health Mix",
+    "stock": 291
+  },
+  {
+    "name": "Sprouted Ragi Mix 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 173,
+    "category": "Health Mix",
+    "stock": 163
+  },
+  {
+    "name": "Sprouted Ragi Mix 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 273,
+    "category": "Health Mix",
+    "stock": 145
+  },
+  {
+    "name": "Sprouted Ragi Mix 3",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 229,
+    "category": "Health Mix",
+    "stock": 199
+  },
+  {
+    "name": "Millet Nutrition Mix 1",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 300,
+    "category": "Health Mix",
+    "stock": 170
+  },
+  {
+    "name": "Millet Nutrition Mix 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 365,
+    "category": "Health Mix",
+    "stock": 257
+  },
+  {
+    "name": "Millet Nutrition Mix 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 319,
+    "category": "Health Mix",
+    "stock": 138
+  },
+  {
+    "name": "Protein Power Mix 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 261,
+    "category": "Health Mix",
+    "stock": 83
+  },
+  {
+    "name": "Protein Power Mix 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 306,
+    "category": "Health Mix",
+    "stock": 104
+  },
+  {
+    "name": "Protein Power Mix 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 228,
+    "category": "Health Mix",
+    "stock": 157
+  },
+  {
+    "name": "Chia Seeds 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 206,
+    "category": "Seeds",
+    "stock": 259
+  },
+  {
+    "name": "Chia Seeds 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 202,
+    "category": "Seeds",
+    "stock": 283
+  },
+  {
+    "name": "Chia Seeds 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 213,
+    "category": "Seeds",
+    "stock": 116
+  },
+  {
+    "name": "Pumpkin Seeds 1",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 134,
+    "category": "Seeds",
+    "stock": 50
+  },
+  {
+    "name": "Pumpkin Seeds 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 434,
+    "category": "Seeds",
+    "stock": 277
+  },
+  {
+    "name": "Pumpkin Seeds 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 194,
+    "category": "Seeds",
+    "stock": 236
+  },
+  {
+    "name": "Sunflower Seeds 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 443,
+    "category": "Seeds",
+    "stock": 221
+  },
+  {
+    "name": "Sunflower Seeds 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 334,
+    "category": "Seeds",
+    "stock": 138
+  },
+  {
+    "name": "Sunflower Seeds 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 413,
+    "category": "Seeds",
+    "stock": 171
+  },
+  {
+    "name": "Flax Seeds 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 172,
+    "category": "Seeds",
+    "stock": 136
+  },
+  {
+    "name": "Flax Seeds 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 297,
+    "category": "Seeds",
+    "stock": 217
+  },
+  {
+    "name": "Flax Seeds 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 312,
+    "category": "Seeds",
+    "stock": 199
+  },
+  {
+    "name": "Watermelon Seeds 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 240,
+    "category": "Seeds",
+    "stock": 217
+  },
+  {
+    "name": "Watermelon Seeds 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 158,
+    "category": "Seeds",
+    "stock": 272
+  },
+  {
+    "name": "Watermelon Seeds 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 353,
+    "category": "Seeds",
+    "stock": 266
+  },
+  {
+    "name": "Roasted Seed Mix 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 172,
+    "category": "Seeds",
+    "stock": 247
+  },
+  {
+    "name": "Roasted Seed Mix 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 157,
+    "category": "Seeds",
+    "stock": 219
+  },
+  {
+    "name": "Roasted Seed Mix 3",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 263,
+    "category": "Seeds",
+    "stock": 60
+  },
+  {
+    "name": "Omega Seed Blend 1",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 199,
+    "category": "Seeds",
+    "stock": 257
+  },
+  {
+    "name": "Omega Seed Blend 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 389,
+    "category": "Seeds",
+    "stock": 58
+  },
+  {
+    "name": "Omega Seed Blend 3",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 206,
+    "category": "Seeds",
+    "stock": 251
+  },
+  {
+    "name": "Coffee Soap 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 346,
+    "category": "Soaps",
+    "stock": 64
+  },
+  {
+    "name": "Coffee Soap 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 441,
+    "category": "Soaps",
+    "stock": 242
+  },
+  {
+    "name": "Coffee Soap 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 212,
+    "category": "Soaps",
+    "stock": 65
+  },
+  {
+    "name": "Charcoal Soap 1",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 184,
+    "category": "Soaps",
+    "stock": 59
+  },
+  {
+    "name": "Charcoal Soap 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 214,
+    "category": "Soaps",
+    "stock": 191
+  },
+  {
+    "name": "Charcoal Soap 3",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 316,
+    "category": "Soaps",
+    "stock": 77
+  },
+  {
+    "name": "Papaya Soap 1",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 201,
+    "category": "Soaps",
+    "stock": 277
+  },
+  {
+    "name": "Papaya Soap 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 221,
+    "category": "Soaps",
+    "stock": 60
+  },
+  {
+    "name": "Papaya Soap 3",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 215,
+    "category": "Soaps",
+    "stock": 275
+  },
+  {
+    "name": "Neem Tulsi Soap 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 365,
+    "category": "Soaps",
+    "stock": 262
+  },
+  {
+    "name": "Neem Tulsi Soap 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 417,
+    "category": "Soaps",
+    "stock": 226
+  },
+  {
+    "name": "Neem Tulsi Soap 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 198,
+    "category": "Soaps",
+    "stock": 196
+  },
+  {
+    "name": "Aloe Vera Soap 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 424,
+    "category": "Soaps",
+    "stock": 88
+  },
+  {
+    "name": "Aloe Vera Soap 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 419,
+    "category": "Soaps",
+    "stock": 148
+  },
+  {
+    "name": "Aloe Vera Soap 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 240,
+    "category": "Soaps",
+    "stock": 298
+  },
+  {
+    "name": "Red Wine Soap 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 222,
+    "category": "Soaps",
+    "stock": 86
+  },
+  {
+    "name": "Red Wine Soap 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 397,
+    "category": "Soaps",
+    "stock": 83
+  },
+  {
+    "name": "Red Wine Soap 3",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 231,
+    "category": "Soaps",
+    "stock": 110
+  },
+  {
+    "name": "Sandal Soap 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 339,
+    "category": "Soaps",
+    "stock": 83
+  },
+  {
+    "name": "Sandal Soap 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 237,
+    "category": "Soaps",
+    "stock": 229
+  },
+  {
+    "name": "Sandal Soap 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 120,
+    "category": "Soaps",
+    "stock": 226
+  },
+  {
+    "name": "Turmeric Soap 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 142,
+    "category": "Soaps",
+    "stock": 162
+  },
+  {
+    "name": "Turmeric Soap 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 421,
+    "category": "Soaps",
+    "stock": 294
+  },
+  {
+    "name": "Turmeric Soap 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 443,
+    "category": "Soaps",
+    "stock": 176
+  },
+  {
+    "name": "Ragi Flour 1",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 212,
+    "category": "Millets",
+    "stock": 204
+  },
+  {
+    "name": "Ragi Flour 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 394,
+    "category": "Millets",
+    "stock": 225
+  },
+  {
+    "name": "Ragi Flour 3",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 179,
+    "category": "Millets",
+    "stock": 102
+  },
+  {
+    "name": "Foxtail Millet 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 340,
+    "category": "Millets",
+    "stock": 266
+  },
+  {
+    "name": "Foxtail Millet 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 145,
+    "category": "Millets",
+    "stock": 112
+  },
+  {
+    "name": "Foxtail Millet 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 384,
+    "category": "Millets",
+    "stock": 214
+  },
+  {
+    "name": "Little Millet 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 130,
+    "category": "Millets",
+    "stock": 236
+  },
+  {
+    "name": "Little Millet 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 123,
+    "category": "Millets",
+    "stock": 278
+  },
+  {
+    "name": "Little Millet 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 291,
+    "category": "Millets",
+    "stock": 139
+  },
+  {
+    "name": "Kodo Millet 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 371,
+    "category": "Millets",
+    "stock": 106
+  },
+  {
+    "name": "Kodo Millet 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 361,
+    "category": "Millets",
+    "stock": 249
+  },
+  {
+    "name": "Kodo Millet 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 438,
+    "category": "Millets",
+    "stock": 212
+  },
+  {
+    "name": "Barnyard Millet 1",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 425,
+    "category": "Millets",
+    "stock": 268
+  },
+  {
+    "name": "Barnyard Millet 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 151,
+    "category": "Millets",
+    "stock": 87
+  },
+  {
+    "name": "Barnyard Millet 3",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 308,
+    "category": "Millets",
+    "stock": 219
+  },
+  {
+    "name": "Ragi Choco Bite 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 406,
+    "category": "Healthy Snacks",
+    "stock": 270
+  },
+  {
+    "name": "Ragi Choco Bite 2",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 280,
+    "category": "Healthy Snacks",
+    "stock": 225
+  },
+  {
+    "name": "Ragi Choco Bite 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 361,
+    "category": "Healthy Snacks",
+    "stock": 185
+  },
+  {
+    "name": "Millet Energy Bar 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 322,
+    "category": "Healthy Snacks",
+    "stock": 115
+  },
+  {
+    "name": "Millet Energy Bar 2",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 162,
+    "category": "Healthy Snacks",
+    "stock": 272
+  },
+  {
+    "name": "Millet Energy Bar 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 155,
+    "category": "Healthy Snacks",
+    "stock": 206
+  },
+  {
+    "name": "Seed Energy Bar 1",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 207,
+    "category": "Healthy Snacks",
+    "stock": 299
+  },
+  {
+    "name": "Seed Energy Bar 2",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 141,
+    "category": "Healthy Snacks",
+    "stock": 178
+  },
+  {
+    "name": "Seed Energy Bar 3",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 292,
+    "category": "Healthy Snacks",
+    "stock": 114
+  },
+  {
+    "name": "Healthy Granola 1",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 228,
+    "category": "Healthy Snacks",
+    "stock": 210
+  },
+  {
+    "name": "Healthy Granola 2",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 199,
+    "category": "Healthy Snacks",
+    "stock": 215
+  },
+  {
+    "name": "Healthy Granola 3",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 388,
+    "category": "Healthy Snacks",
+    "stock": 223
+  },
+  {
+    "name": "Protein Snack Mix 1",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 339,
+    "category": "Healthy Snacks",
+    "stock": 292
+  },
+  {
+    "name": "Protein Snack Mix 2",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 284,
+    "category": "Healthy Snacks",
+    "stock": 123
+  },
+  {
+    "name": "Protein Snack Mix 3",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 363,
+    "category": "Healthy Snacks",
+    "stock": 278
+  },
+  {
+    "name": "Healthy Product 91",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 178,
+    "category": "Millets",
+    "stock": 110
+  },
+  {
+    "name": "Healthy Product 92",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 228,
+    "category": "Seeds",
+    "stock": 115
+  },
+  {
+    "name": "Healthy Product 93",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 340,
+    "category": "Healthy Snacks",
+    "stock": 140
+  },
+  {
+    "name": "Healthy Product 94",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 200,
+    "category": "Seeds",
+    "stock": 82
+  },
+  {
+    "name": "Healthy Product 95",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 362,
+    "category": "Soaps",
+    "stock": 235
+  },
+  {
+    "name": "Healthy Product 96",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 472,
+    "category": "Health Mix",
+    "stock": 203
+  },
+  {
+    "name": "Healthy Product 97",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 178,
+    "category": "Healthy Snacks",
+    "stock": 55
+  },
+  {
+    "name": "Healthy Product 98",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 140,
+    "category": "Healthy Snacks",
+    "stock": 155
+  },
+  {
+    "name": "Healthy Product 99",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 476,
+    "category": "Healthy Snacks",
+    "stock": 82
+  },
+  {
+    "name": "Healthy Product 100",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 233,
+    "category": "Health Mix",
+    "stock": 191
+  },
+  {
+    "name": "Healthy Product 101",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 405,
+    "category": "Seeds",
+    "stock": 116
+  },
+  {
+    "name": "Healthy Product 102",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 227,
+    "category": "Millets",
+    "stock": 123
+  },
+  {
+    "name": "Healthy Product 103",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 160,
+    "category": "Health Mix",
+    "stock": 216
+  },
+  {
+    "name": "Healthy Product 104",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 279,
+    "category": "Millets",
+    "stock": 200
+  },
+  {
+    "name": "Healthy Product 105",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 170,
+    "category": "Healthy Snacks",
+    "stock": 107
+  },
+  {
+    "name": "Healthy Product 106",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 396,
+    "category": "Health Mix",
+    "stock": 223
+  },
+  {
+    "name": "Healthy Product 107",
+    "description": "Traditional recipe crafted for daily nutrition.",
+    "price": 257,
+    "category": "Millets",
+    "stock": 186
+  },
+  {
+    "name": "Healthy Product 108",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 378,
+    "category": "Millets",
+    "stock": 50
+  },
+  {
+    "name": "Healthy Product 109",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 482,
+    "category": "Healthy Snacks",
+    "stock": 218
+  },
+  {
+    "name": "Healthy Product 110",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 492,
+    "category": "Health Mix",
+    "stock": 245
+  },
+  {
+    "name": "Healthy Product 111",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 486,
+    "category": "Health Mix",
+    "stock": 46
+  },
+  {
+    "name": "Healthy Product 112",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 142,
+    "category": "Healthy Snacks",
+    "stock": 199
+  },
+  {
+    "name": "Healthy Product 113",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 299,
+    "category": "Soaps",
+    "stock": 163
+  },
+  {
+    "name": "Healthy Product 114",
+    "description": "Natural and healthy product made from premium ingredients.",
+    "price": 136,
+    "category": "Healthy Snacks",
+    "stock": 124
+  },
+  {
+    "name": "Healthy Product 115",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 395,
+    "category": "Health Mix",
+    "stock": 149
+  },
+  {
+    "name": "Healthy Product 116",
+    "description": "Perfect for healthy lifestyle and balanced diet.",
+    "price": 213,
+    "category": "Soaps",
+    "stock": 118
+  },
+  {
+    "name": "Healthy Product 117",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 308,
+    "category": "Soaps",
+    "stock": 140
+  },
+  {
+    "name": "Healthy Product 118",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 115,
+    "category": "Healthy Snacks",
+    "stock": 197
+  },
+  {
+    "name": "Healthy Product 119",
+    "description": "Made with carefully selected organic ingredients.",
+    "price": 266,
+    "category": "Seeds",
+    "stock": 106
+  },
+  {
+    "name": "Healthy Product 120",
+    "description": "Rich in fiber, protein and essential minerals.",
+    "price": 276,
+    "category": "Millets",
+    "stock": 177
+  }
+]

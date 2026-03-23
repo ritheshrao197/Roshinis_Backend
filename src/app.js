@@ -2,21 +2,25 @@
 const express=require("express")
 const cors=require("cors")
 
-const auth=require("./routes/authRoutes")
-const products=require("./routes/productRoutes")
-const orders=require("./routes/orderRoutes")
-const payments=require("./routes/paymentRoutes")
-const admin=require("./routes/adminRoutes")
+const productRoutes=require("./routes/productRoutes")
+const categoryRoutes=require("./routes/categoryRoutes")
+const couponRoutes=require("./routes/couponRoutes")
+const wishlistRoutes=require("./routes/wishlistRoutes")
+const reviewRoutes=require("./routes/reviewRoutes")
+const shippingRoutes=require("./routes/shippingRoutes")
+const analyticsRoutes=require("./routes/analyticsRoutes")
 
 const app=express()
 
 app.use(cors())
 app.use(express.json())
 
-app.use("/api/auth",auth)
-app.use("/api/products",products)
-app.use("/api/orders",orders)
-app.use("/api/payments",payments)
-app.use("/api/admin",admin)
+app.use("/api/products",productRoutes)
+app.use("/api/categories",categoryRoutes)
+app.use("/api/coupons",couponRoutes)
+app.use("/api/wishlist",wishlistRoutes)
+app.use("/api/reviews",reviewRoutes)
+app.use("/api/shipping",shippingRoutes)
+app.use("/api/analytics",analyticsRoutes)
 
 module.exports=app
