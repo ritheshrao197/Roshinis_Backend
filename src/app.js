@@ -13,6 +13,7 @@ const authRoutes=require("./routes/authRoutes")
 const orderRoutes=require("./routes/orderRoutes")
 const paymentRoutes=require("./routes/paymentRoutes")
 const adminRoutes=require("./routes/adminRoutes")
+const userRoutes=require("./routes/userRoutes")
 
 const app=express()
 
@@ -30,5 +31,6 @@ app.use("/api/auth",authRoutes)
 app.use("/api/orders",orderRoutes)
 app.use("/api/payments",paymentRoutes)
 app.use("/api/admin",adminRoutes)
+app.use("/api/users",userRoutes)
 
 module.exports=app

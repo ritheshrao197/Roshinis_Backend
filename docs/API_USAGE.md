@@ -1,41 +1,42 @@
 # Roshinis Backend API Guide
 
-This document explains how to run and consume the APIs currently available in this backend.
+This guide documents the APIs currently implemented in the backend and how to use them from the frontend or external clients.
 
-## Project Summary
+## Base URLs
 
-This Express + MongoDB backend is organized by ecommerce domains:
+Local:
 
-- Authentication
-- Products
-- Categories
-- Coupons
-- Wishlist
-- Reviews
-- Shipping
-- Orders
-- Payments
-- Analytics / Admin
-- Notifications
-- Invoices
+```text
+http://localhost:5000
+```
 
-The codebase already contains most of these modules, but not all of them are fully exposed through the running app yet. This guide separates:
+Deployed:
 
-- `Implemented and mounted`: available through the current server
-- `Implemented but not mounted`: code exists, but the route is not currently attached in `src/app.js`
-- `Planned / missing`: mentioned in the design, but not implemented yet
+```text
+https://roshinis-backend.onrender.com
+```
 
-## Runtime Setup
+Base API prefix:
 
-### Install dependencies
+```text
+/api
+```
+
+## Setup
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Environment variables
+Run locally:
 
-The project uses `.env` values like:
+```bash
+npm run dev
+```
+
+Important environment variables:
 
 ```env
 PORT=5000
@@ -52,64 +53,27 @@ EMAIL_USER=...
 EMAIL_PASS=...
 ```
 
-### Start the server
+## Current API Modules
 
-```bash
-npm run dev
-```
+Mounted and available now:
 
-Default local base URL:
-
-```text
-http://localhost:5000
-```
-
-Deployed base URL:
-
-```text
-https://roshinis-backend.onrender.com
-```
-
-## Current Backend Status
-
-### Implemented and mounted now
-
-These routes are attached in `src/app.js` and available when the server starts, both locally and on the deployed app:
-
+- `/api/auth`
 - `/api/products`
 - `/api/categories`
 - `/api/coupons`
 - `/api/wishlist`
 - `/api/reviews`
 - `/api/shipping`
-- `/api/analytics`
-
-### Implemented but not mounted yet
-
-These route files exist, but they are not currently attached in `src/app.js`:
-
-- `/api/auth`
 - `/api/orders`
 - `/api/payments`
+- `/api/analytics`
 - `/api/admin`
+- `/api/users`
 
-To use them, the app must mount their route modules first.
+Still not exposed as routes:
 
-### Planned or partially implemented
-
-These are not fully available yet:
-
-- Product details by ID
-- Product update / delete
-- Category update / delete
-- Coupon list / create
-- Wishlist remove
-- Review list by product
-- Order details by ID
-- Order status update
 - Notifications APIs
 - Invoice APIs
-- Auth profile get / update
 
 ## Authentication APIs
 
@@ -119,13 +83,11 @@ Base route:
 /api/auth
 ```
 
-Status: `Implemented but not mounted`
-
 ### `POST /api/auth/register`
 
 Create a new user.
 
-Request body:
+Request:
 
 ```json
 {
@@ -143,7 +105,6 @@ Response:
     "_id": "65f...",
     "name": "Rohini",
     "email": "user@test.com",
-    "password": "$2a$10$...",
     "role": "user",
     "createdAt": "2026-03-23T00:00:00.000Z",
     "__v": 0
@@ -154,14 +115,13 @@ Response:
 
 Notes:
 
-- Password is hashed before saving.
-- The current response returns the saved user document, including the hashed password.
+- Returns `201 Created`
+- Rejects duplicate emails
+- Password is hashed and is not returned in the response
 
 ### `POST /api/auth/login`
 
-Login with email and password.
-
-Request body:
+Request:
 
 ```json
 {
@@ -170,7 +130,7 @@ Request body:
 }
 ```
 
-Possible responses:
+Success response:
 
 ```json
 {
@@ -178,14 +138,13 @@ Possible responses:
     "_id": "65f...",
     "name": "Rohini",
     "email": "user@test.com",
-    "password": "$2a$10$...",
-    "role": "user",
-    "createdAt": "2026-03-23T00:00:00.000Z",
-    "__v": 0
+    "role": "user"
   },
   "token": "jwt-token"
 }
 ```
+
+Error responses:
 
 ```json
 {
@@ -199,10 +158,61 @@ Possible responses:
 }
 ```
 
-Not implemented yet:
+### `GET /api/auth/profile`
 
-- `GET /api/auth/profile`
-- `PUT /api/auth/profile`
+Get the logged-in user profile.
+
+Header:
+
+```text
+Authorization: Bearer <jwt-token>
+```
+
+Response:
+
+```json
+{
+  "user": {
+    "_id": "65f...",
+    "name": "Rohini",
+    "email": "user@test.com",
+    "role": "user"
+  }
+}
+```
+
+### `PUT /api/auth/profile`
+
+Update the logged-in user profile.
+
+Header:
+
+```text
+Authorization: Bearer <jwt-token>
+```
+
+Request:
+
+```json
+{
+  "name": "Rohini S",
+  "email": "newmail@test.com",
+  "password": "newpassword"
+}
+```
+
+Response:
+
+```json
+{
+  "user": {
+    "_id": "65f...",
+    "name": "Rohini S",
+    "email": "newmail@test.com",
+    "role": "user"
+  }
+}
+```
 
 ## Product APIs
 
@@ -211,8 +221,6 @@ Base route:
 ```text
 /api/products
 ```
-
-Status: `Implemented and mounted`
 
 ### `GET /api/products`
 
@@ -229,28 +237,36 @@ Example response:
     "price": 250,
     "category": "Health Mix",
     "stock": 200,
+    "image": "https://...",
     "reviews": [],
     "createdAt": "2026-03-23T00:00:00.000Z",
+    "updatedAt": "2026-03-23T00:00:00.000Z",
     "__v": 0
   }
 ]
 ```
 
+### `GET /api/products/:id`
+
+Get one product by MongoDB `_id`.
+
+404 response:
+
+```json
+{
+  "message": "Product not found"
+}
+```
+
 ### `GET /api/products/search?q=nutrimix`
 
-Search products using MongoDB text index on `name` and `description`.
-
-Example:
-
-```http
-GET /api/products/search?q=nutrimix
-```
+Search products using MongoDB text search on `name` and `description`.
 
 ### `POST /api/products`
 
 Create a product.
 
-Request body:
+Request:
 
 ```json
 {
@@ -258,15 +274,41 @@ Request body:
   "description": "Multi grain nutrition mix",
   "price": 250,
   "category": "Health Mix",
-  "stock": 200
+  "stock": 200,
+  "image": "https://..."
 }
 ```
 
-Not implemented yet:
+Returns `201 Created`.
 
-- `GET /api/products/:id`
-- `PUT /api/products/:id`
-- `DELETE /api/products/:id`
+### `PUT /api/products/:id`
+
+Update a product.
+
+Request:
+
+```json
+{
+  "name": "Updated name",
+  "description": "Updated description",
+  "price": 300,
+  "category": "Seeds",
+  "stock": 120,
+  "image": "https://..."
+}
+```
+
+### `DELETE /api/products/:id`
+
+Delete a product.
+
+Success response:
+
+```json
+{
+  "message": "Product deleted successfully"
+}
+```
 
 ## Category APIs
 
@@ -276,11 +318,9 @@ Base route:
 /api/categories
 ```
 
-Status: `Implemented and mounted`
-
 ### `GET /api/categories`
 
-Get all categories.
+List categories.
 
 Example seeded categories:
 
@@ -294,8 +334,6 @@ Example seeded categories:
 
 Create a category.
 
-Request body:
-
 ```json
 {
   "name": "Healthy Snacks",
@@ -303,10 +341,21 @@ Request body:
 }
 ```
 
-Not implemented yet:
+### `PUT /api/categories/:id`
 
-- `PUT /api/categories/:id`
-- `DELETE /api/categories/:id`
+Update a category.
+
+### `DELETE /api/categories/:id`
+
+Delete a category.
+
+Success response:
+
+```json
+{
+  "message": "Category deleted successfully"
+}
+```
 
 ## Coupon APIs
 
@@ -316,13 +365,9 @@ Base route:
 /api/coupons
 ```
 
-Status: `Implemented and mounted`
-
 ### `POST /api/coupons/apply`
 
-Apply a coupon to a cart total.
-
-Request body:
+Request:
 
 ```json
 {
@@ -331,7 +376,7 @@ Request body:
 }
 ```
 
-Example responses:
+Responses:
 
 ```json
 {
@@ -347,16 +392,11 @@ Example responses:
 }
 ```
 
-Important behavior:
+Current behavior:
 
-- The current controller only checks whether the coupon code exists.
-- It uses `discountValue` directly.
-- `discountType`, `expiryDate`, and `active` are currently not validated in the apply flow.
-
-Not implemented yet:
-
-- `GET /api/coupons`
-- `POST /api/coupons` for admin coupon creation
+- Looks up the coupon by code
+- Uses `discountValue` directly
+- Does not currently validate expiry or active status
 
 ## Wishlist APIs
 
@@ -366,17 +406,13 @@ Base route:
 /api/wishlist
 ```
 
-Status: `Implemented and mounted`
-
 ### `GET /api/wishlist?userId=123`
 
-Get one user's wishlist by `userId`.
+Get a user's wishlist.
 
 ### `POST /api/wishlist/add`
 
-Add a product to the user's wishlist.
-
-Request body:
+Request:
 
 ```json
 {
@@ -385,15 +421,29 @@ Request body:
 }
 ```
 
-Behavior:
+Notes:
 
-- If no wishlist exists for the user, one is created.
-- If a wishlist exists, the product is appended.
-- Duplicate product entries are currently possible.
+- Creates the wishlist if it does not exist
+- Duplicate product entries are currently possible
 
-Not implemented yet:
+### `DELETE /api/wishlist/remove`
 
-- `DELETE /api/wishlist/remove`
+Request body or query params may be used:
+
+```json
+{
+  "userId": "123",
+  "productId": "456"
+}
+```
+
+Validation error:
+
+```json
+{
+  "message": "userId and productId are required"
+}
+```
 
 ## Review APIs
 
@@ -403,13 +453,25 @@ Base route:
 /api/reviews
 ```
 
-Status: `Implemented and mounted`
+### `GET /api/reviews/:productId`
+
+Get all reviews for a product.
+
+Response:
+
+```json
+[
+  {
+    "userId": "456",
+    "rating": 5,
+    "comment": "Very good product"
+  }
+]
+```
 
 ### `POST /api/reviews`
 
-Add a review to a product.
-
-Request body:
+Request:
 
 ```json
 {
@@ -422,12 +484,8 @@ Request body:
 
 Behavior:
 
-- Reviews are stored inside the product document.
-- The API returns the updated product object.
-
-Not implemented yet:
-
-- `GET /api/reviews/:productId`
+- Reviews are stored inside the product document
+- Returns the updated product
 
 ## Shipping APIs
 
@@ -437,13 +495,9 @@ Base route:
 /api/shipping
 ```
 
-Status: `Implemented and mounted`
-
 ### `POST /api/shipping/calculate`
 
-Calculate shipping cost.
-
-Request body:
+Request:
 
 ```json
 {
@@ -452,7 +506,7 @@ Request body:
 }
 ```
 
-Example response:
+Response:
 
 ```json
 {
@@ -460,11 +514,11 @@ Example response:
 }
 ```
 
-Current calculation logic:
+Current logic:
 
 - Base cost = `50`
 - If `weight > 2`, add `30`
-- If the pincode does not start with `56`, add `40`
+- If pincode does not start with `56`, add `40`
 
 ## Order APIs
 
@@ -474,13 +528,11 @@ Base route:
 /api/orders
 ```
 
-Status: `Implemented but not mounted`
-
 ### `POST /api/orders`
 
 Create an order.
 
-Request body example:
+Request:
 
 ```json
 {
@@ -498,19 +550,47 @@ Request body example:
 }
 ```
 
-Behavior:
+Notes:
 
-- The backend creates an `orderId` in the format `ORD-<uuid>`.
-- `orderStatus` defaults to `Pending`.
+- Returns `201 Created`
+- Generates an `orderId` in the format `ORD-<uuid>`
+- `orderStatus` defaults to `Pending`
 
 ### `GET /api/orders`
 
 List all orders.
 
-Not implemented yet:
+### `GET /api/orders/:id`
 
-- `GET /api/orders/:id`
-- `PUT /api/orders/:id/status`
+Get an order by MongoDB `_id` or by generated `ORD-...` order ID.
+
+404 response:
+
+```json
+{
+  "message": "Order not found"
+}
+```
+
+### `PUT /api/orders/:id/status`
+
+Update order status.
+
+Request:
+
+```json
+{
+  "orderStatus": "Shipped"
+}
+```
+
+You can also send:
+
+```json
+{
+  "status": "Shipped"
+}
+```
 
 ## Payment APIs
 
@@ -520,13 +600,9 @@ Base route:
 /api/payments
 ```
 
-Status: `Implemented but not mounted`
-
 ### `POST /api/payments/phonepe`
 
-Create a PhonePe payment request.
-
-Request body:
+Request:
 
 ```json
 {
@@ -535,11 +611,19 @@ Request body:
 }
 ```
 
+If the gateway call fails, the API returns:
+
+```json
+{
+  "message": "PhonePe payment failed"
+}
+```
+
+or the underlying service error message.
+
 ### `POST /api/payments/razorpay`
 
-Create a Razorpay order.
-
-Request body:
+Request:
 
 ```json
 {
@@ -547,9 +631,21 @@ Request body:
 }
 ```
 
-### `POST /api/payments/cod`
+If setup is incomplete, possible errors include:
 
-Create a Cash on Delivery flow response.
+```json
+{
+  "message": "Razorpay SDK is not installed on the backend"
+}
+```
+
+```json
+{
+  "message": "Razorpay environment variables are missing"
+}
+```
+
+### `POST /api/payments/cod`
 
 Response:
 
@@ -559,14 +655,7 @@ Response:
 }
 ```
 
-Notes:
-
-- Payment APIs depend on environment variables being set correctly.
-- The code imports `razorpay`, but that package is not currently listed in `package.json`.
-
-## Analytics and Admin APIs
-
-### Analytics
+## Analytics APIs
 
 Base route:
 
@@ -574,21 +663,21 @@ Base route:
 /api/analytics
 ```
 
-Status: `Implemented and mounted`
+### `GET /api/analytics/dashboard`
 
-#### `GET /api/analytics/dashboard`
-
-Current response:
+Response:
 
 ```json
 {
-  "totalProducts": 120
+  "totalProducts": 120,
+  "totalOrders": 34,
+  "totalUsers": 200,
+  "totalRevenue": 18500,
+  "inStockProducts": 98
 }
 ```
 
-This endpoint currently returns only the product count.
-
-### Admin
+## Admin APIs
 
 Base route:
 
@@ -596,11 +685,9 @@ Base route:
 /api/admin
 ```
 
-Status: `Implemented but not mounted`
+### `GET /api/admin/dashboard`
 
-#### `GET /api/admin/dashboard`
-
-Current response shape:
+Response:
 
 ```json
 {
@@ -611,57 +698,52 @@ Current response shape:
 }
 ```
 
-Not implemented yet:
+### `GET /api/admin/users`
 
-- `GET /api/admin/orders`
-- `GET /api/admin/products`
+List users for admin screens.
 
-## Notification APIs
+Response shape:
 
-Status: `Planned / service-only`
+```json
+[
+  {
+    "_id": "65f...",
+    "username": "johndoe",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "user",
+    "createdAt": "2026-03-23T00:00:00.000Z"
+  }
+]
+```
+
+### `GET /api/admin/users/:id`
+
+Get one user by ID.
+
+404 response:
+
+```json
+{
+  "message": "User not found"
+}
+```
+
+### `GET /api/users`
+
+Alias for `GET /api/admin/users`.
+
+### `GET /api/users/:id`
+
+Alias for `GET /api/admin/users/:id`.
+
+## Notifications and Invoice APIs
 
 Current status:
 
-- There is an email service in `src/services/emailService.js`
-- No notification route/controller is exposed yet
-- WhatsApp messaging is not implemented
-
-Planned routes:
-
-- `POST /api/notifications/email`
-- `POST /api/notifications/whatsapp`
-
-## Invoice APIs
-
-Status: `Planned / service-only`
-
-Current status:
-
-- There is an invoice PDF generator in `src/services/invoiceService.js`
-- No invoice route/controller is exposed yet
-
-Planned route:
-
-- `GET /api/invoice/:orderId`
-
-## Recommended Frontend Integration Order
-
-If you are integrating the frontend today, use this order:
-
-1. Products
-2. Categories
-3. Coupons
-4. Wishlist
-5. Reviews
-6. Shipping
-7. Analytics
-
-Then enable these in backend routing before frontend integration:
-
-1. Auth
-2. Orders
-3. Payments
-4. Admin
+- `src/services/emailService.js` exists
+- `src/services/invoiceService.js` exists
+- No mounted notification or invoice routes yet
 
 ## Example cURL Requests
 
@@ -671,26 +753,49 @@ Then enable these in backend routing before frontend integration:
 curl https://roshinis-backend.onrender.com/api/products
 ```
 
-### Search products
+### Get one product
 
 ```bash
-curl "https://roshinis-backend.onrender.com/api/products/search?q=seeds"
+curl https://roshinis-backend.onrender.com/api/products/<productId>
 ```
 
-### Create category
+### Register
 
 ```bash
-curl -X POST https://roshinis-backend.onrender.com/api/categories \
+curl -X POST https://roshinis-backend.onrender.com/api/auth/register \
   -H "Content-Type: application/json" \
-  -d "{\"name\":\"Healthy Snacks\",\"description\":\"Healthy snacks and bars\"}"
+  -d "{\"name\":\"Rohini\",\"email\":\"user@test.com\",\"password\":\"123456\"}"
 ```
 
-### Apply coupon
+### Login
 
 ```bash
-curl -X POST https://roshinis-backend.onrender.com/api/coupons/apply \
+curl -X POST https://roshinis-backend.onrender.com/api/auth/login \
   -H "Content-Type: application/json" \
-  -d "{\"code\":\"WELCOME10\",\"total\":500}"
+  -d "{\"email\":\"user@test.com\",\"password\":\"123456\"}"
+```
+
+### Get profile
+
+```bash
+curl https://roshinis-backend.onrender.com/api/auth/profile \
+  -H "Authorization: Bearer <jwt-token>"
+```
+
+### Create order
+
+```bash
+curl -X POST https://roshinis-backend.onrender.com/api/orders \
+  -H "Content-Type: application/json" \
+  -d "{\"userId\":\"123\",\"items\":[{\"productId\":\"456\",\"quantity\":1,\"price\":250}],\"totalAmount\":250,\"paymentMethod\":\"COD\",\"paymentStatus\":\"Pending\"}"
+```
+
+### Update order status
+
+```bash
+curl -X PUT https://roshinis-backend.onrender.com/api/orders/ORD-123/status \
+  -H "Content-Type: application/json" \
+  -d "{\"orderStatus\":\"Shipped\"}"
 ```
 
 ### Add wishlist item
@@ -701,12 +806,18 @@ curl -X POST https://roshinis-backend.onrender.com/api/wishlist/add \
   -d "{\"userId\":\"123\",\"productId\":\"456\"}"
 ```
 
-### Add review
+### Remove wishlist item
 
 ```bash
-curl -X POST https://roshinis-backend.onrender.com/api/reviews \
+curl -X DELETE https://roshinis-backend.onrender.com/api/wishlist/remove \
   -H "Content-Type: application/json" \
-  -d "{\"productId\":\"123\",\"userId\":\"456\",\"rating\":5,\"comment\":\"Very good product\"}"
+  -d "{\"userId\":\"123\",\"productId\":\"456\"}"
+```
+
+### Get reviews
+
+```bash
+curl https://roshinis-backend.onrender.com/api/reviews/<productId>
 ```
 
 ### Calculate shipping
@@ -717,27 +828,10 @@ curl -X POST https://roshinis-backend.onrender.com/api/shipping/calculate \
   -d "{\"weight\":1.5,\"pincode\":\"575001\"}"
 ```
 
-## Gaps Between Design and Current Code
+## Notes
 
-Your proposed ecommerce API structure is strong and production-friendly, but the current codebase is still in a partial implementation stage.
-
-Main gaps:
-
-- Several route modules are not mounted in `src/app.js`
-- CRUD coverage is incomplete in products and categories
-- Some modules only implement create flows, not read/update/delete flows
-- Notifications and invoices exist only as services
-- There is no auth middleware protecting private routes yet
-- Error handling and validation are minimal
-
-## Suggested Next Improvements
-
-1. Mount auth, orders, payments, and admin routes in `src/app.js`
-2. Add request validation and centralized error handling
-3. Hide hashed passwords from auth responses
-4. Add auth middleware for protected routes
-5. Complete missing CRUD endpoints
-6. Expose notifications and invoice controllers/routes
-7. Add API documentation tooling such as Swagger later
-
-
+- Auth profile routes require a Bearer token
+- Password hashes are no longer returned from auth APIs
+- Product `image` and `updatedAt` fields are supported
+- Render must be redeployed to expose the newly added routes
+- Render must install the new `razorpay` dependency before `/api/payments/razorpay` will work
