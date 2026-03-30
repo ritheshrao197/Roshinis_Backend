@@ -2,6 +2,8 @@
 
 This guide documents the APIs currently implemented in the backend and how to use them from the frontend or external clients.
 
+It reflects the route surface mounted in `src/app.js`.
+
 ## Base URLs
 
 Local:
@@ -74,6 +76,45 @@ Still not exposed as routes:
 
 - Notifications APIs
 - Invoice APIs
+
+## Implemented Endpoint Summary
+
+These endpoints are currently implemented and mounted:
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/auth/profile`
+- `PUT /api/auth/profile`
+- `GET /api/products`
+- `GET /api/products/search?q=:query`
+- `GET /api/products/:id`
+- `POST /api/products`
+- `PUT /api/products/:id`
+- `DELETE /api/products/:id`
+- `GET /api/categories`
+- `POST /api/categories`
+- `PUT /api/categories/:id`
+- `DELETE /api/categories/:id`
+- `POST /api/coupons/apply`
+- `GET /api/wishlist?userId=:userId`
+- `POST /api/wishlist/add`
+- `DELETE /api/wishlist/remove`
+- `GET /api/reviews/:productId`
+- `POST /api/reviews`
+- `POST /api/shipping/calculate`
+- `POST /api/orders`
+- `GET /api/orders`
+- `GET /api/orders/:id`
+- `PUT /api/orders/:id/status`
+- `POST /api/payments/cod`
+- `POST /api/payments/razorpay`
+- `POST /api/payments/phonepe`
+- `GET /api/analytics/dashboard`
+- `GET /api/admin/dashboard`
+- `GET /api/admin/users`
+- `GET /api/admin/users/:id`
+- `GET /api/users`
+- `GET /api/users/:id`
 
 ## Authentication APIs
 

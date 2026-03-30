@@ -1,9 +1,14 @@
 
-const router=require("express").Router()
-const c=require("../controllers/adminController")
+const router = require('express').Router();
+const c = require('../controllers/adminController');
+const { requireAuth } = require('../middleware/authMiddleware');
+const { requireAdmin } = require('../middleware/requireAdmin');
 
-router.get("/dashboard",c.dashboard)
-router.get("/users",c.getUsers)
-router.get("/users/:id",c.getUserById)
+// All admin routes require a valid JWT AND admin role
+router.use(requireAuth, requireAdmin);
 
-module.exports=router
+router.get('/dashboard', c.dashboard);
+router.get('/users', c.getUsers);
+router.get('/users/:id', c.getUserById);
+
+module.exports = router;

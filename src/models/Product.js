@@ -1,13 +1,18 @@
-
 const mongoose=require("mongoose")
 
 const schema=new mongoose.Schema({
  name:String,
  description:String,
  price:Number,
+ originalPrice:Number,
+ sku:String,
+ ingredients:[String],
+ benefits:[String],
+ nutritionFacts:Object,
  category:String,
  stock:Number,
  image:String,
+ images:[String],
  reviews:[{
    userId:String,
    rating:Number,

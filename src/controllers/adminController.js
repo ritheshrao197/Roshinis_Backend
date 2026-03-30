@@ -1,43 +1,53 @@
 
-const Order=require("../models/Order")
-const Product=require("../models/Product")
-const User=require("../models/User")
+const Order = require('../models/Order');
+const Product = require('../models/Product');
+const User = require('../models/User');
 
-const formatUser=user=>{
- const obj=user.toObject ? user.toObject() : user
- delete obj.password
- obj.username=obj.username || (obj.email ? obj.email.split("@")[0] : "")
- return obj
-}
+const formatUser = (user) => {
+  const obj = user.toObject ? user.toObject() : { ...user };
+  delete obj.password;
+  obj.username = obj.username || (obj.email ? obj.email.split('@')[0] : '');
+  return obj;
+};
 
-exports.dashboard=async(req,res)=>{
+exports.dashboard = async (req, res, next) => {
+  try {
+    const [products, orders, users, revenueResult, inStockProducts] = await Promise.all([
+      Product.countDocuments(),
+      Order.countDocuments(),
+      User.countDocuments(),
+      // Use aggregation pipeline instead of fetching all orders into memory
+      Order.aggregate([{ $group: { _id: null, total: { $sum: '$totalAmount' } } }]),
+      Product.countDocuments({ stock: { $gt: 0 } }),
+    ]);
 
- const products=await Product.countDocuments()
- const orders=await Order.countDocuments()
- const users=await User.countDocuments()
+    const revenue = revenueResult.length > 0 ? revenueResult[0].total : 0;
 
- const revenueData=await Order.find()
+    res.json({ products, orders, users, revenue, inStockProducts });
+  } catch (err) {
+    next(err);
+  }
+};
 
- let revenue=0
- revenueData.forEach(o=>{
-  revenue+=o.totalAmount||0
- })
+exports.getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find().sort({ createdAt: -1 }).lean();
+    res.json(users.map(formatUser));
+  } catch (err) {
+    next(err);
+  }
+};
 
- res.json({products,orders,users,revenue})
+exports.getUserById = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.params.id).lean();
 
-}
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
 
-exports.getUsers=async(req,res)=>{
- const users=await User.find().sort({createdAt:-1})
- res.json(users.map(formatUser))
-}
-
-exports.getUserById=async(req,res)=>{
- const user=await User.findById(req.params.id)
-
- if(!user){
-  return res.status(404).json({message:"User not found"})
- }
-
- res.json(formatUser(user))
-}
+    res.json(formatUser(user));
+  } catch (err) {
+    next(err);
+  }
+};
